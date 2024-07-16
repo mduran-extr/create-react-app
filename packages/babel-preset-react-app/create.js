@@ -213,15 +213,16 @@ module.exports = function (api, opts, env) {
         exclude: /\.tsx?$/,
         plugins: [require('@babel/plugin-transform-flow-strip-types').default],
       },
-      isTypeScriptEnabled && {
-        test: /\.tsx?$/,
-        plugins: [
-          [
-            require('@babel/plugin-proposal-decorators').default,
-            { legacy: true },
-          ],
-        ],
-      },
+      // Leave this commented out so Storybook React can be compiled
+      // isTypeScriptEnabled && {
+      //   test: /\.tsx?$/,
+      //   plugins: [
+      //     [
+      //       require('@babel/plugin-proposal-decorators').default,
+      //       { legacy: true },
+      //     ],
+      //   ],
+      // },
     ].filter(Boolean),
   };
 };
